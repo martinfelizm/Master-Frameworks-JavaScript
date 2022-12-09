@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+     <head>
+         <meta charset="utf-8">
+         <title>Maquetación master Framework Javascript</title>
+         <!--Hoja de estilos-->
+        <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+  
+        <script type="text/javascript">
+               //Se ejecuta al cargar la pagina completamente
+               window.addEventListener("load",function(){
+                  var template = document.getElementById("articleItem");  
+
+                  var articles = document.getElementById("articles");
+                  for(var i=1;i<=5;i++){
+                    //Clonando
+                  var clonado =  template.cloneNode(true);
+                  //Quitando propiedad de lo clonado
+                  clonado.removeAttribute("id");
+                  //Modificando texto de propiedad
+                  var h2 = clonado.getElementsByTagName("h2")[0];
+                  h2.innerHTML = h2.textContent + ' ' + i;
+                   articles.appendChild(clonado);
+                  }
+               });
+        </script>
+     </head>
+     <body>
+         <header id="headerPrin">
+              <div class="center">
+                  <!--LOGO-->
+                  <div id="logo">
+                    <img src="./assets/images/imgVue.png" class="app-logo" alt="Logotipo">
+                    <span id="brand"> <!--marca-->
+                       <strong>Master</strong>Vue
+                    </span>
+                  </div>
+                  <!--MENU-->
+                  <nav id="menuPrin">
+                       <ul>
+                           <li>
+                             <a href="./index.html">Inicio</a>
+                           </li>
+                           <li>
+                            <a href="./blog.html">Blog</a>
+                          </li>
+                          <li>
+                            <a href="#">Formulario</a>
+                          </li>
+                          <li>
+                            <a href="#">Pagina 1</a>
+                          </li>
+                          <li>
+                            <a href="#">Pagina 2</a>
+                          </li>
+                       </ul>
+                  </nav>
+                  <!--LIMPIAR FLOTADOS-->
+                  <div class="clearfix"></div>
+              </div>
+         </header>
+
+         <div id="slider" class="slider-l">
+           <h1>Bienvenido al cursor master de Javascript con REACT</h1>
+           <a href="./blog.html" class="btn-go-blog">Ir al Blog</a>
+         </div>
+
+         <div class="center">
+           <section id="content">
+             <h2 class="titleItem">Ultimos articulos</h2>
+               <!--Lista de Articulos-->
+               <div id="articles">
+                  <article class="article-item" id="articleItem">
+                    <div class="image-wrap">
+                      <img src="./assets/images/Paisaje1.jpg" alt="Paisaje1">
+                    </div>
+                    <h2>Articulo</h2>
+                    <span class="date">
+                      hace 5 minutos
+                    </span>
+                    <a href="./article.html">Leer mas</a>
+                   </article>
+               </div>
+              <div class="clearfix"></div>
+           </section>
+
+           <aside id="sidebar">
+             <div id="nav-blog" class="sidebar-item">
+               <h3>Puedes hacer esto</h3>
+               <a href="#" class="btn-AddItem">Crear árticulo</a>
+             </div>
+
+             <div id="search" class="sidebar-item">
+              <h3>Buscador</h3>
+              <form>
+                <input type="text" name="search" id="inpsearch">
+                <input type="submit" name="submit" id="btnBuscar" class="btn btn-find" value="Buscar">
+              </form>
+            </div>
+           </aside>
+           <div class="clearfix"></div>
+         </div>
+         <footer id="footer">
+           <div class="center">
+             <p>
+               &copy; Master en Framework para Javascript
+             </p>
+           </div>
+         </footer>
+     </body>
+     
+</html>

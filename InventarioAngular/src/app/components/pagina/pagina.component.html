@@ -1,0 +1,31 @@
+<app-slider size="small" display="none" ></app-slider>
+
+<p class="subheader">pagina works!</p>
+<div *ngIf="valorEnviado; else noHayParametros"> <!--IF AND ELSE-->
+    El valor envia es: {{ valorEnviado }}
+</div>
+
+<div *ngIf="valorEnviado; then noHayParametros else siHayParametros"> <!--IF AND ELSE-->
+    El valor envia es: {{ valorEnviado }}
+</div>
+
+<ng-template #noHayParametros>
+ <h2>No hay parametros enviados ???</h2>
+</ng-template>
+
+<ng-template #siHayParametros>
+    <h2>Si hay parametros enviados ???</h2>
+   </ng-template>
+
+<button (click)="redireccionar()" class="btn btn-find">Mandando parametros</button>
+
+  <h2 class="subheader">Eventos</h2>
+  <button (click)="pressClick()">Presioname evento click</button>
+  <br>
+<input type="text" value="" [(ngModel)]="campo" (blur)="asSalido()" style="width: 200px;"> 
+<input type="text" value="" [(ngModel)]="campo2" (keyup.enter)="asSalido()" style="width: 200px;"> 
+{{ campo }}
+{{ campo2 }}
+
+
+

@@ -1,0 +1,21 @@
+ <!--validando que las peliculas existen-->
+ <article class="article-item" id="articleItem" >
+    <div class="image-wrap">
+        <img src="{{ pelicula.image }}" style="width: 100%" alt="{{ pelicula.title }}">
+    </div>
+    <h2># {{ i }} {{ pelicula.title | uppercase }}</h2>
+    <span class="date">
+        hace 5 minutos
+    </span>
+    <!-- [style.background]="pelicula.year >= 2019 ? 'green' : 'red'"-->
+    <!-- [class.year-green]="pelicula.year >= 2019 ? 'green' : 'red'"-->
+    <span class="year" [ngClass]="{
+     'year-green': pelicula.year >= 2019,
+     'year-red': pelicula.year < 2019
+           }">
+        {{ pelicula.year }}
+    </span>
+    <a [routerLink]="['/peliculas']">Leer mas</a>
+    <input type="button" value="Favorita" (click)="Seleccionado($event, pelicula)">
+</article>
+

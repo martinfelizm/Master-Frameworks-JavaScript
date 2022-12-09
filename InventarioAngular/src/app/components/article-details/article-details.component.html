@@ -1,0 +1,35 @@
+<div id="slider" class="slider-s">
+    <h1>Articulos detalles</h1>
+</div>
+<div class="center">
+    <section id="scontent" style="float: none;">
+        <!--Lista de Articulos-->
+        <div class="center">
+            <section id="content">
+                <div id="articles">
+                    <article class="article-item article-details">
+                        <div class="image-wrap">
+                            <img src="{{url + 'get-IMG/' + article.image}}" alt="{{article.title}}"
+                                *ngIf="article.image">
+                            <img src="assets/images/default3.png" alt="{{article.title}}" *ngIf="!article.image">
+                        </div>
+                        <h1 class="subheader">{{ article.title }}</h1>
+                        <span class="date">
+                            {{ article.date | amLocale: 'es' | amTimeAgo }}
+                        </span>
+                        <p>
+                            {{ article.content }}
+                        </p>
+
+                        <a  class="btn btn-Guardar" [routerLink]="['/blog/article_edit', article._id]"> Editar </a>
+                       <a [routerLink]="['/home']" class="btn btn-warning"> Atrás </a>
+                        <a class="btn btn-danger" (click)="deleteArticle()"> Borrar </a>
+                    </article>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,39 @@
+<div>
+    <h1 class="subheader">Bienvenido al Formulario</h1>
+
+    <form action="" class="mid-form" #frmUser="ngForm" (ngSubmit)="onSubmit($event)">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombres" [(ngModel)]="dataFrm.nombres" #nombres="ngModel" required
+                pattern="[a-zA-Z]+">
+
+            <small *ngIf="!nombres.valid && nombres.touched">
+                Los nombre no son validos
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" [(ngModel)]="dataFrm.apellidos" #apellidos="ngModel" required>
+            <small *ngIf="!apellidos.valid && apellidos.touched">
+                Los apellidos no son validos
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Biografia</label>
+            <textarea name="biografia" [(ngModel)]="dataFrm.biografia" #biografia="ngModel" required></textarea>
+            <small *ngIf="!biografia.valid && biografia.touched">
+                Los biografia no son validos
+            </small>
+        </div>
+        <div class="form-group radiobtn">
+            <input type="radio" name="genero" value="H" [(ngModel)]="dataFrm.genero" #genero="ngModel" required> Hombre
+            <input type="radio" name="genero" value="F" [(ngModel)]="dataFrm.genero" #genero="ngModel"> Mujer
+            <input type="radio" name="genero" value="O" [(ngModel)]="dataFrm.genero" #genero="ngModel"> Otro
+            <small *ngIf="!genero.valid && genero.touched">
+                Los genero no son validos
+            </small>
+        </div>
+        <div class="clearfix"></div>
+        <input type="submit" #btnSend value="enviar" class="btn btn-Guardar" [disabled]="frmUser.invalid">
+    </form>
+</div>

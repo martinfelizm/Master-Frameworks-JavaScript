@@ -1,0 +1,9 @@
+{
+  "foo-tag/foo-attr": {
+    "description": "An foo-attr description"
+  },
+  "handle-foo": {
+    "type": "event",
+    "documentation": "You gotta handle foo"
+  }
+}

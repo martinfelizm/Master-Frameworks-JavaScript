@@ -1,0 +1,43 @@
+<p class="subheader">{{ titulo }}</p>
+<!--
+<h2>Cantidad de peliculas : {{ peliculas.length }}</h2>
+
+<div *ngIf="peliculas.length <= 3 " style="display:none">
+    Hay pocas peliculas!!!
+</div>
+
+<div *ngIf="peliculas.length > 3 " style="display:none">
+    Hay muchas peliculas!!!
+</div>
+-->
+<!--validando que las peliculas existen-->
+<div class="center">
+    <section id="content">
+
+        <div id="favorita" *ngIf="favorita">
+            <h2 class="subheader">Pelicula Favorita</h2>
+            <h4>
+                {{ favorita.title }}
+            </h4>
+
+            <h4>
+                {{ favorita.year | espar }} <!--Implementando PIPE que cree-->
+            </h4>
+            <h4>
+                {{ fechaS | date: 'dd/MM/yyyy hh:mm'}}
+            </h4>
+        </div>
+        
+        <h2 class="titleItem">Ultimas Peliculas</h2>
+        <!--Lista de Peliculas-->
+        <div id="articles" *ngIf="peliculas">
+
+            <div *ngFor="let pelicula of peliculas; let i = index;">
+                <app-pelicula [pelicula]="pelicula" [i]="i" (marcarFavorita)='seeFavorita($event)'></app-pelicula>
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+    </section>
+</div>

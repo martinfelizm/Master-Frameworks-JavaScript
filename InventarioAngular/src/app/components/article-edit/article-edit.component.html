@@ -1,0 +1,40 @@
+<div class="subheader">     
+    {{ windTitle }} 
+</div>
+
+<form action="" class="mid-form" #frmArticle="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="title">Nombre del Articulo</label>
+        <input type="text" name="title" [(ngModel)]="ArticleNew.title" #title="ngModel" data-rule-minlength="2" required pattern="[a-zA-Z ]+">
+
+        <small *ngIf="!title.valid && title.touched">
+            El Nombre del Articulo no es valido ??
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="content">Descripción</label>
+        <textarea name="content" [(ngModel)]="ArticleNew.content" #content="ngModel" required></textarea>
+        <small *ngIf="!content.valid && content.touched">
+            La Descripción del Articulo no es valido ??
+        </small>
+    </div>
+    <div class="form-group">              
+        <div *ngIf="isEdit" style="float: left; display: block;">
+            <div class="image-wrap">
+                <img src="{{url + 'get-IMG/' + ArticleNew.image}}" alt="{{ArticleNew.title}}"
+                    *ngIf="ArticleNew.image">
+                <img src="assets/images/default3.png" alt="{{ArticleNew.title}}" *ngIf="!ArticleNew.image">
+            </div>
+        </div>   
+        <angular-file-uploader [config]="afuConfig" (ApiResponse)="ImgUpload($event)" style="float: left;padding-top: 1%;">
+        </angular-file-uploader>       
+    </div>
+
+    <div class="clearfix"></div>
+        
+    <input type="submit" #btnSend value="enviar" class="btn btn-Guardar" [disabled]="frmArticle.invalid" [ngClass]="{
+        'hideAll': frmArticle.invalid
+    }">
+</form>
+
+

@@ -1,0 +1,14 @@
+<div id="slider" class="slider-s">
+    <h1>Busqueda de articulos</h1>
+</div>
+
+<div id="search" class="sidebar-item">
+    <form #frmSearch='ngForm' (ngSubmit)="valueSearch()">
+        <input type="text" name="search" id="inpsearch" style="width: 50%;" [(ngModel)]="search">
+        <input type="submit" name="submit" id="btnBuscar" style="margin-left: 1%;" class="btn btn-find" value="Buscar">
+    </form>
+</div>
+
+<h2 class="titleItem">Articulos encontrados</h2>
+
+<app-articles [articles]="articles"></app-articles>

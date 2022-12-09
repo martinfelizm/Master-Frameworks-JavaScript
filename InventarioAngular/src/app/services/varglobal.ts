@@ -1,0 +1,5 @@
+export var UrlApi  = {
+    url: 'http://localhost:3900/api/'
+};
+
+ 

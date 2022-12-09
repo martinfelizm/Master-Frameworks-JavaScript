@@ -1,0 +1,25 @@
+<div class="loading" *ngIf="!articles">
+  <img src="assets/images/loading.gif">
+</div>
+
+<div class="loading" *ngIf="articles && articles.length==0">
+  No fue encontrado ningun registro con la descripción digitada intentelo mas tarde ):
+</div>
+
+<!--Lista de Articulos-->
+<div id="articles">
+  <article class="article-item" id="articleItem" *ngFor="let article of articles">
+    <div class="image-wrap">
+      <img src="{{url + 'get-IMG/' + article.image}}" alt="{{article.title}}" *ngIf="article.image">
+      <img src="assets/images/default3.png" alt="{{article.title}}" *ngIf="!article.image">
+    </div>
+    <h2>{{article.title}}</h2>
+    <span>
+      {{ article.content }}
+    </span>
+    <span class="date">
+      {{ article.date | amLocale: 'es' | amTimeAgo }}
+    </span>
+    <a [routerLink]="['/blog/articulo', article._id]">Leer mas</a>
+  </article>
+</div>
